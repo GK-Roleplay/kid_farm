@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kid Farm Tablet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app" class="hidden">
+        <div class="bg-glow"></div>
+        <div class="tablet">
+            <header class="tablet-header">
+                <div>
+                    <p class="eyebrow">Kid-Friendly Job</p>
+                    <h1 id="tabletTitle">Sunny Farm Tablet</h1>
+                </div>
+                <button id="closeBtn" class="ghost-btn">Close</button>
+            </header>
+
+            <section class="status-row">
+                <div class="card xp-card">
+                    <div class="row-between">
+                        <span id="levelLabel">Level 1</span>
+                        <span id="xpLabel">0 XP</span>
+                    </div>
+                    <div class="xp-track">
+                        <div id="xpFill" class="xp-fill"></div>
+                    </div>
+                    <p id="bonusLabel" class="small-text">Payout bonus: +0%</p>
+                </div>
+                <div class="card daily-card">
+                    <p class="small-title">Daily Actions</p>
+                    <p id="dailyLabel">0 / 0</p>
+                    <p id="resetLabel" class="small-text">Reset: -</p>
+                </div>
+                <div class="card wallet-card">
+                    <p class="small-title">Farm Wallet</p>
+                    <p id="walletLabel">$0</p>
+                    <p class="small-text">Used if cash export is offline</p>
+                </div>
+            </section>
+
+            <main class="tablet-main">
+                <section class="card quest-card">
+                    <div class="row-between">
+                        <h2>Quest Steps</h2>
+                        <button id="waypointBtn" class="ghost-btn small">Waypoint: ON</button>
+                    </div>
+                    <p id="objectiveText" class="objective-text">Loading objective...</p>
+                    <ul id="questSteps" class="steps"></ul>
+                </section>
+
+                <section class="card inventory-card">
+                    <h2>Inventory</h2>
+                    <ul id="inventoryList" class="inventory-list"></ul>
+                    <p id="loopsLabel" class="small-text">Loops complete: 0</p>
+                    <p id="earnedLabel" class="small-text">Total earned: $0</p>
+                </section>
+
+                <section class="card action-card">
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="collect">Collect</button>
+                        <button class="tab-btn" data-tab="process">Process</button>
+                        <button class="tab-btn" data-tab="sell">Sell</button>
+                    </div>
+
+                    <div class="tab-content" data-content="collect">
+                        <h2>Field Collection</h2>
+                        <p class="small-text">Pick a crop, then start collecting in the Field zone.</p>
+                        <label class="field-label" for="collectCrop">Crop</label>
+                        <select id="collectCrop"></select>
+                        <button id="collectBtn" class="primary-btn">Collect Crop</button>
+                    </div>
+
+                    <div class="tab-content hidden" data-content="process">
+                        <h2>Barn Recipes</h2>
+                        <p class="small-text">Process your raw crops into better products.</p>
+                        <div id="recipeList" class="recipe-list"></div>
+                    </div>
+
+                    <div class="tab-content hidden" data-content="sell">
+                        <h2>Market Sales</h2>
+                        <p class="small-text">Choose quantities and sell at the Market zone.</p>
+                        <div id="sellList" class="sell-list"></div>
+                        <div class="row-between">
+                            <button id="fillAllBtn" class="ghost-btn">Use Max</button>
+                            <button id="sellBtn" class="primary-btn">Sell Selected</button>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <div id="progressOverlay" class="progress-overlay hidden">
+            <div class="progress-box">
+                <p id="progressLabel">Working...</p>
+                <div class="xp-track">
+                    <div id="progressFill" class="xp-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="receiptModal" class="receipt-modal hidden">
+            <div class="receipt-card">
+                <h3>Earnings Summary</h3>
+                <ul id="receiptList"></ul>
+                <p id="receiptTotal" class="receipt-total"></p>
+                <button id="receiptClose" class="primary-btn">Nice!</button>
+            </div>
+        </div>
+
+        <div id="toastStack" class="toast-stack"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+-- Deprecated in v2.0.0
+-- Use sql/farming.sql for the active schema.

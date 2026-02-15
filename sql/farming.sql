@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS kid_farm_players (
+    identifier VARCHAR(80) NOT NULL PRIMARY KEY,
+    xp INT NOT NULL DEFAULT 0,
+    level INT NOT NULL DEFAULT 1,
+    wallet INT NOT NULL DEFAULT 0,
+    wheat INT NOT NULL DEFAULT 0,
+    corn INT NOT NULL DEFAULT 0,
+    flour INT NOT NULL DEFAULT 0,
+    bread INT NOT NULL DEFAULT 0,
+    daily_actions INT NOT NULL DEFAULT 0,
+    daily_collect INT NOT NULL DEFAULT 0,
+    daily_process INT NOT NULL DEFAULT 0,
+    daily_sell INT NOT NULL DEFAULT 0,
+    last_reset_date DATE NOT NULL,
+    total_earned INT NOT NULL DEFAULT 0,
+    loops_completed INT NOT NULL DEFAULT 0,
+    waypoint_enabled TINYINT(1) NOT NULL DEFAULT 1,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_kid_farm_last_reset (last_reset_date),
+    INDEX idx_kid_farm_level (level)
+);

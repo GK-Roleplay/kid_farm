@@ -1,0 +1,389 @@
+:root {
+    --bg-1: #0f2f1f;
+    --bg-2: #123a28;
+    --panel: rgba(14, 24, 36, 0.82);
+    --panel-light: rgba(24, 36, 51, 0.9);
+    --text: #f3f8ff;
+    --muted: #aac0d7;
+    --good: #6bde6b;
+    --warn: #ffce57;
+    --bad: #ff6f73;
+    --accent: #50d7c8;
+    --accent-2: #73a3ff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', 'Trebuchet MS', sans-serif;
+    color: var(--text);
+    overflow: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#app {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2vh 1vw;
+}
+
+.bg-glow {
+    position: absolute;
+    width: 62vw;
+    height: 62vw;
+    background: radial-gradient(circle, rgba(80, 215, 200, 0.18), rgba(20, 40, 30, 0));
+    filter: blur(10px);
+}
+
+.tablet {
+    position: relative;
+    width: min(1200px, 96vw);
+    min-height: min(760px, 94vh);
+    background: linear-gradient(160deg, var(--bg-2), var(--bg-1));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 14px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+.tablet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.eyebrow {
+    margin: 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+}
+
+h1 {
+    margin: 4px 0 0;
+    font-size: 30px;
+}
+
+h2 {
+    margin: 0 0 8px;
+    font-size: 20px;
+}
+
+.card {
+    background: var(--panel);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 14px;
+}
+
+.status-row {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 12px;
+}
+
+.row-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.small-title {
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.small-text {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.xp-track {
+    width: 100%;
+    height: 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.xp-fill {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    transition: width 260ms ease;
+}
+
+.tablet-main {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 1.25fr;
+    gap: 12px;
+    flex: 1;
+}
+
+.quest-card,
+.inventory-card,
+.action-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.objective-text {
+    margin: 6px 0 10px;
+    color: #fff9c9;
+    font-weight: 600;
+}
+
+.steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.steps li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--panel-light);
+    border-radius: 10px;
+    padding: 9px 10px;
+}
+
+.step-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: var(--warn);
+}
+
+.steps li.done .step-dot {
+    background: var(--good);
+}
+
+.inventory-list,
+.sell-list,
+.recipe-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.inventory-list li,
+.sell-row,
+.recipe-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--panel-light);
+    border-radius: 10px;
+    padding: 8px 10px;
+}
+
+.tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.tab-btn,
+.primary-btn,
+.ghost-btn,
+select,
+input {
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    font-size: 14px;
+}
+
+.tab-btn,
+.primary-btn,
+.ghost-btn {
+    cursor: pointer;
+    padding: 9px 10px;
+    color: var(--text);
+}
+
+.tab-btn {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.tab-btn.active {
+    background: linear-gradient(120deg, rgba(80, 215, 200, 0.45), rgba(115, 163, 255, 0.45));
+}
+
+.primary-btn {
+    background: linear-gradient(120deg, rgba(80, 215, 200, 0.85), rgba(115, 163, 255, 0.85));
+    border: none;
+    font-weight: 700;
+}
+
+.ghost-btn {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.ghost-btn.small {
+    font-size: 12px;
+    padding: 6px 8px;
+}
+
+.field-label {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+select,
+input {
+    width: 100%;
+    background: rgba(15, 23, 34, 0.9);
+    color: var(--text);
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.recipe-meta {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.quantity-input {
+    width: 68px;
+    margin: 0;
+    text-align: center;
+}
+
+.progress-overlay,
+.receipt-modal {
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 13, 20, 0.72);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-box,
+.receipt-card {
+    width: min(460px, 92vw);
+    background: rgba(20, 34, 50, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    padding: 18px;
+}
+
+.receipt-card h3 {
+    margin-top: 0;
+}
+
+#receiptList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px;
+    display: grid;
+    gap: 6px;
+}
+
+.receipt-total {
+    font-weight: 700;
+    color: #fff7ab;
+}
+
+.toast-stack {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    display: grid;
+    gap: 8px;
+    max-width: 340px;
+}
+
+.toast {
+    background: rgba(16, 22, 31, 0.94);
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 14px;
+    animation: toast-in 200ms ease;
+}
+
+.toast.warn {
+    border-left-color: var(--warn);
+}
+
+.toast.error {
+    border-left-color: var(--bad);
+}
+
+.toast.success {
+    border-left-color: var(--good);
+}
+
+.level-pop {
+    animation: pulse 650ms ease;
+}
+
+@keyframes toast-in {
+    from {
+        transform: translateX(25px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    40% {
+        transform: scale(1.06);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 980px) {
+    .tablet {
+        height: 98vh;
+        width: 99vw;
+        border-radius: 12px;
+        padding: 12px;
+    }
+
+    .status-row {
+        grid-template-columns: 1fr;
+    }
+
+    .tablet-main {
+        grid-template-columns: 1fr;
+        overflow: auto;
+    }
+}
